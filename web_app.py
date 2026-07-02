@@ -9,7 +9,7 @@ from lib.auth import init_session_defaults, is_authenticated, login_form
 # Must be the first Streamlit call
 st.set_page_config(
     page_title="KPI Hub — Garrett Motion",
-    page_icon="assets/Onward_Logo.png",
+    page_icon="assets/logo.png",
     layout="wide",
     initial_sidebar_state="expanded",
 )

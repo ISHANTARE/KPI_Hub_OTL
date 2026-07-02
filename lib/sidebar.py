@@ -36,7 +36,7 @@ _NAV_ITEMS = [
 @st.cache_data
 def _get_logo_b64() -> str:
     """Cache the logo base64 string so it's only encoded once per session."""
-    logo_path = Path("assets/Onward_Logo.png")
+    logo_path = Path("assets/logo.png")
     if logo_path.exists():
         try:
             return base64.b64encode(logo_path.read_bytes()).decode()
@@ -121,7 +121,7 @@ def bootstrap_sidebar() -> None:
 <div class="sidebar-brand">
     {logo_html}
     <div class="sidebar-brand-name">KPI Hub</div>
-    <div class="sidebar-brand-sub">Garrett Motion &middot; Engineering PMO</div>
+    <div class="sidebar-brand-sub">Garrett Motion Engineering PMO</div>
 </div>
 {active_style}
 """, unsafe_allow_html=True)
