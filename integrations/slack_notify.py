@@ -50,7 +50,7 @@ def send_teams_alert(message: str, webhook_url: str) -> bool:
                                 "type": "TextBlock",
                                 "size": "Medium",
                                 "weight": "Bolder",
-                                "text": "🚨 KPI Hub Performance Alert"
+                                "text": "KPI Hub Performance Alert"
                             },
                             {
                                 "type": "TextBlock",

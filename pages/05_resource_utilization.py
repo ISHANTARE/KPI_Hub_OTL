@@ -809,7 +809,7 @@ with tab_sub:
         warning_subcontractors = sub_df_display[sub_df_display['PROJECTED_MONTHLY_BURN'] >= (sub_df_display['MONTHLY_CAP'] * 0.9)]
         if not warning_subcontractors.empty:
             for _, row in warning_subcontractors.iterrows():
-                st.warning(f"⚠️ **Cap Alert**: Subcontractor *{row['NAME']}* ({row['COMPANY']}) on Project **{row['PROJECT_ID']}** has projected monthly burn (${row['PROJECTED_MONTHLY_BURN']:,.2f}) close to or exceeding monthly cap (${row['MONTHLY_CAP']:,.2f})!")
+                st.warning(f"**Cap Alert**: Subcontractor *{row['NAME']}* ({row['COMPANY']}) on Project **{row['PROJECT_ID']}** has projected monthly burn (${row['PROJECTED_MONTHLY_BURN']:,.2f}) close to or exceeding monthly cap (${row['MONTHLY_CAP']:,.2f})!")
 
         st.dataframe(
             sub_df_display,

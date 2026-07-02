@@ -107,7 +107,7 @@ def login_form() -> None:
         }
         </style>
         <div class="login-wrapper">
-            <div class="login-title">🔐 KPI Hub</div>
+            <div class="login-title">KPI Hub</div>
             <div class="login-sub">Garrett Motion — Sign In</div>
         </div>
         """,
@@ -134,7 +134,7 @@ def login_form() -> None:
                 logger.info(f"User '{username}' authenticated as {st.session_state['user_role']}.")
                 st.rerun()
             else:
-                st.error("❌ Invalid username or password.")
+                st.error("Invalid username or password.")
 
 
 def logout() -> None:
@@ -189,7 +189,7 @@ def require_role(allowed_roles: List[str]) -> None:
     current_role = st.session_state.get("user_role", "Viewer")
     if current_role not in allowed_roles:
         st.error(
-            f"🚫 **Access Denied** — Your role (*{current_role}*) does not have "
+            f"**Access Denied** — Your role (*{current_role}*) does not have "
             f"permission to view this page."
         )
         st.info("Please contact your KPI Hub administrator to request access.")

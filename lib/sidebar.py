@@ -127,26 +127,8 @@ def bootstrap_sidebar() -> None:
 """, unsafe_allow_html=True)
     st.sidebar.divider()
 
-    # ── User identity panel ───────────────────────────────────────────────────
-    current_role = st.session_state.get("user_role", "Viewer")
-    display_name = st.session_state.get("display_name", "User")
-    role_icon = "👑" if current_role == "Manager" else "👤"
-    st.sidebar.markdown(
-        f"""
-<div style="padding:0.6rem 0.8rem;background:var(--surface-2,#1e293b);
-            border-radius:10px;border:1px solid var(--border,#334155);
-            margin-bottom:0.5rem;">
-  <span style="font-weight:600;color:var(--text-primary,#f1f5f9);">
-    {role_icon} {display_name}
-  </span><br/>
-  <span style="font-size:0.75rem;color:var(--text-muted,#64748b);">
-    {current_role}
-  </span>
-</div>""",
-        unsafe_allow_html=True,
-    )
-
     # ── Navigation buttons (filtered by role) ────────────────────────────────
+    current_role = st.session_state.get("user_role", "Viewer")
     for label, page_path, required_role in _NAV_ITEMS:
         # Hide Manager-only pages from Viewers
         if required_role == "Manager" and current_role != "Manager":
@@ -204,11 +186,11 @@ def bootstrap_sidebar() -> None:
     st.session_state["current_project"] = selected_project
 
     # ── Refresh Data + Logout ─────────────────────────────────────────────────
-    if st.sidebar.button("🔄 Refresh Data", key="refresh_data", width='stretch'):
+    if st.sidebar.button("Refresh Data", key="refresh_data", width='stretch'):
         st.cache_data.clear()
         st.rerun()
 
-    if st.sidebar.button("🚪 Logout", key="logout_btn", width='stretch'):
+    if st.sidebar.button("Logout", key="logout_btn", width='stretch'):
         logout()
 
 

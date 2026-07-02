@@ -241,10 +241,10 @@ def check_and_dispatch_evm_alerts(pevm_df: pd.DataFrame) -> None:
         # Slack Check & Dispatch
         if slack_enabled and slack_webhook and not slack_webhook.startswith("YOUR_"):
             if cpi < slack_cpi_thresh:
-                msg = f"⚠️ *EVM CPI Alert*: Project *{pid}* has CPI of *{cpi:.2f}* (below threshold {slack_cpi_thresh})."
+                msg = f"*EVM CPI Alert*: Project *{pid}* has CPI of *{cpi:.2f}* (below threshold {slack_cpi_thresh})."
                 send_slack_alert(msg, slack_webhook)
             if spi < slack_spi_thresh:
-                msg = f"⚠️ *EVM SPI Alert*: Project *{pid}* has SPI of *{spi:.2f}* (below threshold {slack_spi_thresh})."
+                msg = f"*EVM SPI Alert*: Project *{pid}* has SPI of *{spi:.2f}* (below threshold {slack_spi_thresh})."
                 send_slack_alert(msg, slack_webhook)
                 
         # Teams Check & Dispatch
